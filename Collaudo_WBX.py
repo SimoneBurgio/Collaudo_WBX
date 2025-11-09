@@ -45,7 +45,7 @@ def main(page: ft.Page):
                 except Exception as e:
                     print(f"Errore nel thread di aggiornamento: {e}")
 
-            time.sleep(0.3)
+            time.sleep(0.2)
 
     scan_thread = threading.Thread(target=aggiorna_stato_serrature, daemon=True)
     scan_thread.start()
@@ -77,7 +77,7 @@ def main(page: ft.Page):
             else:
                 murr.deconnect()
                 print("Disconnesso con successo!")
-                e.control.bgcolor = ft.Colors.RED_200
+                e.control.bgcolor = ft.Colors.GREY_400
                 e.control.content.value = "Connetti"
                 e.control.update()
                 connesso = False
@@ -126,37 +126,45 @@ def main(page: ft.Page):
             color=ft.Colors.WHITE,
             font_family="Segoe UI"
         ),
-        bgcolor=ft.Colors.BLUE,
-        border=ft.border.all(1, ft.Colors.BLACK),
-        border_radius=10,
-        padding=ft.padding.symmetric(horizontal=10, vertical=8),
+        bgcolor=ft.Colors.BLUE_400,
+        border=ft.border.all(1, ft.Colors.GREY_700),
+        border_radius=25,
+        padding=ft.padding.symmetric(horizontal=8, vertical=6),
+        width=130,
+        height=80,
         alignment=ft.alignment.center,
     )
 
     elementi_serrature_0 = [
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X0", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 0}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 0},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X1", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 1}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 1},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X2", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 2}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 2},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X3", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 3}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 0, "lock": 3},
+            width=120, height=40,
         ),
     ]
 
 
 
-    pulsante_led_0 = ft.CupertinoButton(
+    pulsante_led_0 = ft.ElevatedButton(
         content=ft.Text("LED (OFF)", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-        bgcolor=ft.Colors.RED, on_click=accendi_led, data=0
+        bgcolor=ft.Colors.RED, on_click=accendi_led, data=0,
+        width=120, height=40,
+        
     )
 
     colonna_contenuto_0 = ft.Column(
@@ -176,7 +184,7 @@ def main(page: ft.Page):
         border=ft.border.all(1, ft.Colors.GREY_400), # Leggermente più scuro per visibilità
         border_radius=10,
         padding=ft.padding.all(10),
-        width=180,
+        width=160,
         alignment=ft.alignment.center,
         shadow=ft.BoxShadow(spread_radius=1, blur_radius=5, color=ft.Colors.GREY_500, offset=ft.Offset(10,5)),
     )
@@ -191,35 +199,42 @@ def main(page: ft.Page):
             color=ft.Colors.WHITE,
             font_family="Segoe UI"
         ),
-        bgcolor=ft.Colors.BLUE,
-        border=ft.border.all(1, ft.Colors.BLACK),
-        border_radius=10,
-        padding=ft.padding.symmetric(horizontal=10, vertical=8),
+        bgcolor=ft.Colors.BLUE_400,
+        border=ft.border.all(1, ft.Colors.GREY_700),
+        border_radius=25,
+        padding=ft.padding.symmetric(horizontal=8, vertical=6),
+        width=130,
+        height=80,
         alignment=ft.alignment.center,
     )
 
     elementi_serrature_1 = [
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X0", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 0}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 0},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X1", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 1}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 1},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X2", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 2}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 2},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X3", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 3}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 1, "lock": 3},
+            width=120, height=40,
         ),
     ]
 
-    pulsante_led_1 = ft.CupertinoButton(
+    pulsante_led_1 = ft.ElevatedButton(
         content=ft.Text("LED (OFF)", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-        bgcolor=ft.Colors.RED, on_click=accendi_led, data=1
+        bgcolor=ft.Colors.RED, on_click=accendi_led, data=1,
+        width=120, height=40,
     )
 
     colonna_contenuto_1 = ft.Column(
@@ -239,7 +254,7 @@ def main(page: ft.Page):
         border=ft.border.all(1, ft.Colors.GREY_400),
         border_radius=10,
         padding=ft.padding.all(10),
-        width=180,
+        width=160,
         alignment=ft.alignment.center,
         shadow=ft.BoxShadow(spread_radius=1, blur_radius=5, color=ft.Colors.GREY_500, offset=ft.Offset(10,5)),
     )
@@ -254,35 +269,42 @@ def main(page: ft.Page):
             color=ft.Colors.WHITE,
             font_family="Segoe UI"
         ),
-        bgcolor=ft.Colors.BLUE,
-        border=ft.border.all(1, ft.Colors.BLACK),
-        border_radius=10,
-        padding=ft.padding.symmetric(horizontal=10, vertical=8),
+        bgcolor=ft.Colors.BLUE_400,
+        border=ft.border.all(1, ft.Colors.GREY_700),
+        border_radius=25,
+        padding=ft.padding.symmetric(horizontal=8, vertical=6),
+        width=130,
+        height=80,
         alignment=ft.alignment.center,
     )
 
     elementi_serrature_2 = [
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X0", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 0}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 0},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X1", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 1}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 1},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X2", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 2}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 2},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X3", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 3}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 2, "lock": 3},
+            width=120, height=40,
         ),
     ]
 
-    pulsante_led_2 = ft.CupertinoButton(
+    pulsante_led_2 = ft.ElevatedButton(
         content=ft.Text("LED (OFF)", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-        bgcolor=ft.Colors.RED, on_click=accendi_led, data=2
+        bgcolor=ft.Colors.RED, on_click=accendi_led, data=2,
+        width=120, height=40,
     )
 
     colonna_contenuto_2 = ft.Column(
@@ -302,7 +324,7 @@ def main(page: ft.Page):
         border=ft.border.all(1, ft.Colors.GREY_400),
         border_radius=10,
         padding=ft.padding.all(10),
-        width=180,
+        width=160,
         alignment=ft.alignment.center,
         shadow=ft.BoxShadow(spread_radius=1, blur_radius=5, color=ft.Colors.GREY_500, offset=ft.Offset(10,5)),
     )
@@ -317,35 +339,42 @@ def main(page: ft.Page):
             color=ft.Colors.WHITE,
             font_family="Segoe UI"
         ),
-        bgcolor=ft.Colors.BLUE,
-        border=ft.border.all(1, ft.Colors.BLACK),
-        border_radius=10,
-        padding=ft.padding.symmetric(horizontal=10, vertical=8),
+        bgcolor=ft.Colors.BLUE_400,
+        border=ft.border.all(1, ft.Colors.GREY_700),
+        border_radius=25,
+        padding=ft.padding.symmetric(horizontal=8, vertical=6),
+        width=130,
+        height=80,
         alignment=ft.alignment.center,
     )
 
     elementi_serrature_3 = [
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X0", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 0}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 0},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X1", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 1}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 1},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X2", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 2}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 2},
+            width=120, height=40,
         ),
-        ft.CupertinoButton(
+        ft.ElevatedButton(
             content=ft.Text("Lock X3", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 3}
+            bgcolor=ft.Colors.GREY_200, on_click=apri_serratura, data={"master": 3, "lock": 3},
+            width=120, height=40,
         ),
     ]
 
-    pulsante_led_3 = ft.CupertinoButton(
+    pulsante_led_3 = ft.ElevatedButton(
         content=ft.Text("LED (OFF)", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-        bgcolor=ft.Colors.RED, on_click=accendi_led, data=3
+        bgcolor=ft.Colors.RED, on_click=accendi_led, data=3,
+        width=120, height=40,
     )
 
     colonna_contenuto_3 = ft.Column(
@@ -365,7 +394,7 @@ def main(page: ft.Page):
         border=ft.border.all(1, ft.Colors.GREY_400),
         border_radius=10,
         padding=ft.padding.all(10),
-        width=180,
+        width=160,
         alignment=ft.alignment.center,
         shadow=ft.BoxShadow(spread_radius=1, blur_radius=5, color=ft.Colors.GREY_500, offset=ft.Offset(10,5)),
     )
@@ -393,22 +422,24 @@ def main(page: ft.Page):
     # PULSANTE CONNETTI/DISCONNETTI
     pulsante_connetti = ft.ElevatedButton(
             content=ft.Text("Connetti", color=ft.Colors.BLACK, weight=ft.FontWeight.BOLD, font_family="Segoe UI"),
-            bgcolor=ft.Colors.RED_200, on_click=connessione, data={"master": 0, "lock": 0},
-            width=150, height=50,
+            bgcolor=ft.Colors.GREY_400, on_click=connessione, data={"master": 0, "lock": 0},
+            width=250, height=50,
+            elevation=15,
             style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=30))
         )
     
     # LAYOUT PRINCIPALE CONTENTENTE IL TITOLO E LA ROW DEI MASTER
     layout_principale = ft.Column(
         controls=[
-            ft.Container(content=titolo_principale, alignment=ft.alignment.center, padding=20),
+            ft.Container(content=titolo_principale, alignment=ft.alignment.center, padding=15), 
+            ft.Container(content=pulsante_connetti, alignment=ft.alignment.center, padding=30),
             riga_master
         ],
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
     )
 
     # AGGIUNTA LAYOUT ALLA PAGINA
-    page.add(pulsante_connetti, layout_principale)
+    page.add(layout_principale)
     page.update()
 
 #   ESECUZIONE
