@@ -394,7 +394,7 @@ def main(page: ft.Page):
         border=ft.border.all(1, ft.Colors.GREY_400),
         border_radius=10,
         padding=ft.padding.all(10),
-        width=160,
+        width=180,
         alignment=ft.alignment.center,
         shadow=ft.BoxShadow(spread_radius=1, blur_radius=5, color=ft.Colors.GREY_500, offset=ft.Offset(10,5)),
     )
