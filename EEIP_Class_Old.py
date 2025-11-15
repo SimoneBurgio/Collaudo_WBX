@@ -191,7 +191,7 @@ class ImpactMurr67:
             byte = 99
         
         try:
-            bit_position = 1
+            bit_position = 7
             mask = 1<<bit_position
             if valore == 1:
                 self.client.o_t_iodata[byte] |= mask   
